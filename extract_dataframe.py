@@ -39,9 +39,14 @@ class TweetDfExtractor:
         
         
     def find_full_text(self)->list:
-        text = 
+        text = list()
+        for tweet in self.tweets_list:
+            if 'retweeted_status' in tweet.keys() and 'extended_tweet' in tweet['retweeted_status'].keys():
+                text.append(tweet['retweeted_status']['extended_tweet']['full_text'])
+            else: text.append('Empty') 
+        return text
+
        
-    
     def find_sentiments(self, text)->list:
         
         return polarity, self.subjectivity
