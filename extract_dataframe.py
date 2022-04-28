@@ -155,7 +155,7 @@ class TweetDfExtractor:
         hashtags = self.find_hashtags()
         mentions = self.find_mentions()
         location = self.find_location()
-        data = zip(created_at, source, text, polarity, subjectivity, lang, fav_count, retweet_count, screen_name, follower_count, friends_count, sensitivity, hashtags, mentions, location)
+        data = {'created_at':created_at, 'source':source, 'text':text, 'polarity':polarity, 'subjectivity':subjectivity, 'lang':lang, 'fav_count':fav_count, 'retweet_count':retweet_count, 'screen_name':screen_name, 'follower_count':follower_count, 'friends_count':friends_count, 'sensitivity':sensitivity, 'hashtags':hashtags, 'mentions':mentions, 'location':location}
         df = pd.DataFrame(data=data, columns=columns)
 
         if save:
